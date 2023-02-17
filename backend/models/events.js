@@ -4,9 +4,10 @@ const Schema= mongoose.Schema;
 
 const eventSchema = new Schema ({
     id: {type: Number},
+    name: {type: String},
     date: {type: Date, required: [true, 'Please provide the date']},
     pic: {type: String},
-    descriprtion: {type: String}
+    description: {type: String}
 })
 
 module.exports = mongoose.model('Event', eventSchema)
