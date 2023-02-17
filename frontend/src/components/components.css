@@ -1,0 +1,12 @@
+.eventcard{
+    width: 18rem;
+    box-shadow: 0 0.5rem 0.5rem 0 rgba(0, 0, 0, 0.1);
+}
+
+.eventcard img {
+    height: 12rem;
+}
+.eventcard:hover {
+    cursor: pointer;
+    box-shadow: 0 1rem 1rem 0 rgba(0, 0, 0, 0.2);
+}

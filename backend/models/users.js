@@ -5,6 +5,7 @@ const Schema= mongoose.Schema;
 const GeoSchema = new Schema({
     type: {
         type:String,
+        enum: ['Point'],
         default: 'Point'
     },
     coordinates: {
