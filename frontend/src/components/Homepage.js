@@ -10,7 +10,7 @@ import Persons from './Persons';
 
 export default function Homepage() {
   return (
-    <div>
+    <div className='container'>
          <Navigator />
          <Slider />
          <NewToG />
