@@ -7,9 +7,13 @@ const {eventRouter} = require('./routes/events')
 const {userRouter} = require('./routes/users')
 
 
-app.use(express.json())
-app.use(cors());
+app.use(cors({
+    origin: ['http://localhost:3000'],
+    credentials: true
+}
+));
 
+app.use(express.json())
 
 app.get('/',(req,res) => {
     res.send('main page')
