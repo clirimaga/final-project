@@ -8,7 +8,7 @@ import Resources from './components/Resources';
 function App() {
   return (
 
-    <div className= 'container-fluid'>
+    <div className='container'>
 
     <Routes>
     <Route path='/' element={<Homepage />} />
