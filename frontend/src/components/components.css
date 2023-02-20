@@ -1,3 +1,5 @@
+
+/* events */
 .eventcard{
     width: 18rem;
     box-shadow: 0 0.5rem 0.5rem 0 rgba(0, 0, 0, 0.1);
@@ -6,7 +8,42 @@
 .eventcard img {
     height: 12rem;
 }
+
 .eventcard:hover {
     cursor: pointer;
     box-shadow: 0 1rem 1rem 0 rgba(0, 0, 0, 0.2);
 }
+
+/* persons */
+.persons h2 {
+    background: linear-gradient(to right, black 50%, #FF5858 50%,#CC2E5D);
+    background-size: 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: 1s ease-in;
+}
+
+.persons h2:hover{
+    background-position: -100%;
+}
+
+.persons img {
+    max-width: 20rem;
+    max-height: 25rem;
+    min-width: 15rem;
+    min-height: 18rem;
+    transition: 1s;
+    flex-wrap: wrap;
+   }
+
+.persons img:hover {
+   transform: scale(1.1);
+   z-index: 2;
+}
+.person {
+    box-shadow: #000;
+}
+.person:hover {
+    background: linear-gradient( to left, rgba(0,0,0, 0.03), rgba(0,0,0,0.11));
+}
+
