@@ -1,3 +1,72 @@
+/* Main color #0A3939 DARK GREEN
+Secondary color #D8D2B9  GOLD */
+
+.btn-navlinks{
+    padding: 5px;
+    border-radius: 3px;
+    color:#D8D2B9;
+    background-color: #0A3939;
+}
+
+.btn-navlinks:hover{
+    color:#0A3939;
+    background-color: #D8D2B9;
+}
+
+
+/* .navbar-brand{
+    padding: 5px;
+    border-radius: 3px;
+    color:#D8D2B9;
+    background-color: #0A3939;
+}
+
+.navbar-brand:hover{
+    color:#0A3939;
+    background-color: #D8D2B9;
+}
+
+.nav-link{
+    padding: 5px;
+    border-radius: 3px;
+    color:#D8D2B9;
+    background-color: #0A3939;
+    margin-left: 5px;
+}
+.nav-link:hover{
+    color:#0A3939;
+    background-color: #D8D2B9;
+}
+
+.button{
+    padding: 5px;
+    border-radius: 3px;
+    color:#D8D2B9;
+    background-color: #0A3939;
+}
+
+.button:hover{
+    color:#0A3939;
+    background-color: #D8D2B9;
+} */
+
+
+
+.login{
+    background-image: url('https://res.cloudinary.com/dffxhlnzz/image/upload/v1677059129/wave_6_ax8g3s.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.register{
+    background-image: url('https://res.cloudinary.com/dffxhlnzz/image/upload/v1677059129/wave_6_ax8g3s.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.text-gold{
+    color: #D8D2B9;
+}
 
 /* events */
 .eventcard{
@@ -15,16 +84,23 @@
 }
 
 /* persons */
+.persons hr{
+    width: 50%;
+    transform: translate(50%);
+}
+
 .persons h2 {
-    background: linear-gradient(to right, black 50%, #FF5858 50%,#CC2E5D);
+    background: linear-gradient(to right, black 50%, #1f6812 50%,#0c6f16);
     background-size: 200%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     transition: 1s ease-in;
+
 }
 
 .persons h2:hover{
     background-position: -100%;
+    font-size: 2.2rem;
 }
 
 .persons img {
@@ -39,6 +115,7 @@
 .persons img:hover {
    transform: scale(1.1);
    z-index: 2;
+   
 }
 .person {
     box-shadow: #000;
@@ -47,3 +124,12 @@
     background: linear-gradient( to left, rgba(0,0,0, 0.03), rgba(0,0,0,0.11));
 }
 
+
+/* stats */
+
+/* .stat-bg {
+    background-image: url('https://res.cloudinary.com/dffxhlnzz/image/upload/v1677057588/wave_5_uxue4z.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+} */
