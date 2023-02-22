@@ -23,6 +23,8 @@ const createUser = async(req,res) => {
   }
 } 
 
+
+
  const updateUser = async(req,res) =>{
     res.send('user updated')
  }; 
