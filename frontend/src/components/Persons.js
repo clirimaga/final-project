@@ -7,6 +7,7 @@ export default function Persons() {
   return (
     <div className='row  persons gap-5'>
 <h1 className='text-center' data-aos="fade-down">Here's what our users have to say!</h1>
+<hr/>
 
 <div className='person col-12 d-flex justify-content-between m-3 flex-wrap p-5 border shadow' data-aos="fade-right"
           >
