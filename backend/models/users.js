@@ -5,7 +5,7 @@ const Schema= mongoose.Schema;
 const GeoSchema = new Schema({
     type: {
         type:String,
-        enum: ['Point'],
+        // enum: ['Point'],
         default: 'Point'
     },
     coordinates: {
@@ -16,9 +16,10 @@ const GeoSchema = new Schema({
 const userSchema = new Schema ({
    name: {type: String, required:[true,'Please insert your Full Name']},
    email: {type:String, required:[true,'Please insert your Email Adress'],unique: true},
-   pic: {type:String},
+   pic: {type:String,default:'https://res.cloudinary.com/dffxhlnzz/image/upload/v1677067972/unknown_yv2dzf.svg'},
    password: {type:String,required:[true,'Please insert your Password'],select:false},
    description: {type: String},
+   germanLevel:{type:String},
    hobbies: [{type:String}],
    geometry: GeoSchema
 })
