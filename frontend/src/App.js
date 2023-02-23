@@ -4,6 +4,8 @@ import Homepage from './components/Homepage';
 import Login from './components/Login';
 import Register from './components/Register';
 import Resources from './components/Resources';
+import PeopleNearBy from './components/PeopleNearBy'
+import ChatRoom from './components/Chatroom';
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
      <Route path='/login' element={<Login />} />
      <Route path='/register' element={<Register />} />
      <Route path='/helpful-resources' element={<Resources />} />
+     <Route path='/peopleNearBy' element={<PeopleNearBy />} />
+     <Route path='/chatRoom' element={<ChatRoom />} />
      {/* <Route path='/profile' element={<Profile />} />
      <Route path='/people-nearby' element={<Nearby />} /> */}
   

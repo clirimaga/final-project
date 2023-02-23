@@ -1,0 +1,19 @@
+import './components.css';
+import React, { useState,useEffect } from 'react';
+
+function nightMode(){
+    const [darkMode, setDarkMode] = React.useState(false);
+
+    React.useEffect(() => {
+        if (darkMode) {
+            document.body.classList.add(dark);
+        } else {
+            document.body.classList.remove(dark)
+        }
+    })
+    return(
+        <button onClick={() => setDarkMode(!darkMode)}>Day/Night</button>
+    );
+}
+
+export default nightMode;

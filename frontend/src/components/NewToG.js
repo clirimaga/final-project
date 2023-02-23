@@ -1,17 +1,17 @@
 import React from 'react';
-import './NewToG.css'
+import './components.css'
 
 export default function NewToG() {
   return (
     <div>
-      <h2 className='Headingcenter'>NEW TO GERMANY?</h2>
+      <h1 className='Headingcenter'>NEW TO GERMANY?</h1>
       <div class="grid-container">
         <div class="grid-item lineLeft" >
-          <h1>The Good News</h1>
+          <h3>The Good News</h3>
           <p>Learning German just got easier</p>
         </div>
         <div class="grid-item">
-          <h1>The Better News</h1>
+          <h3>The Better News</h3>
           <p>You can learn German with others and have fun doing it</p>
         </div>
       </div>

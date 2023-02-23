@@ -17,6 +17,8 @@ function Navigator() {
           {location.pathname !== '/helpful-resources'  && location.pathname !== '/login' && location.pathname !== '/register' && <NavLink to="/register" className="nav-link btn-navlinks">Sign Up</NavLink>}
           {location.pathname === '/helpful-resources'  && <NavLink to="#" className="nav-link btn-navlinks">My Profile</NavLink>}
           {location.pathname === '/helpful-resources'  && <NavLink to="#" className="nav-link btn-navlinks">Log Out</NavLink>}
+          {location.pathname !== '/helpful-resources'  && location.pathname !== '/login' && location.pathname !== '/register' && <NavLink to="/peopleNearBy" className="nav-link btn-navlinks">Near me</NavLink>}
+          {location.pathname !== '/helpful-resources'  && location.pathname !== '/login' && location.pathname !== '/register' && <NavLink to="/ChatRoom" className="nav-link btn-navlinks">chat room</NavLink>}
         </Nav>
 
       </Navbar.Collapse>
