@@ -1,42 +1,75 @@
-const User = require('../models/users');
+const User = require("../models/users");
+const { ErrorResponse } = require("../utils/ErrorResponse");
+const jwt = require("jsonwebtoken");
+const bcrypt = require("bcrypt");
 
-const getUsers = async (req,res) => {
-    try {
-      const users = await User.find({});
-      res.json(users);  
-    } catch (error) {
-        res.status(500).send(error)
-    }
+const getUsers = async (req, res, next) => {
+  try {
+    const users = await User.find({});
+    res.json(users);
+  } catch (error) {
+      res.status(500).send(error)
+  }
+  // console.log(req.query);
+  // try {
+  //   const users = await User.geoNear(
+  //     {
+  //       type: "Point",
+  //       coordinates: [parseFloat(req.query.lng), parseFloat(req.query.lat)],
+  //     },
+  //     { maxDistance: 10000000, spherical: true }
+  //   );
+  //   res.send(users);
+  // } catch (error) {
+  //   console.log(error);
+  // }
 };
 
-const getUser = async(req,res) =>{
-    res.send('user')
- };
+const getProfile = async (req, res, next) => {
+  res.send("user");
+};
 
-const createUser = async(req,res) => {
-    const {name, email,password,hobbies, pic, description,geometry } = req.body;
+const updateUser = async (req, res, next) => {
   try {
-    const user = await User.create({ name, email,password, pic,hobbies, description,geometry });
-    res.status(201).json(user);
+    const { name, email, password, hobbies, pic, description, geometry } =
+      req.body;
+
+    const user = await User.findOne({ email });
+    if (user) throw new ErrorResponse("User already exists", 400);
+
+    const hash = await bcrypt.hash(password, 5);
+    const updatedUser = await User.findOneAndUpdate({
+      name,
+      email,
+      password: hash,
+      pic,
+      hobbies,
+      description,
+      geometry,
+    });
+
+    const payload = { id: newUser._id, email: newUser.email };
+    const token = jwt.sign(payload, process.env.JWT_SECRET, {
+      expiresIn: "8h",
+    });
+
+    res
+      .cookie("access_token", token, {
+        maxAge: 1000 * 60 * 60 * 8,
+      })
+      .send(payload);
   } catch (error) {
-    res.status(500).send(error);
+    next(error);
   }
-} 
+};
 
+const deleteUser = async (req, res, next) => {
+  res.send("user deleted");
+};
 
-
- const updateUser = async(req,res) =>{
-    res.send('user updated')
- }; 
-
- const deleteUser = async(req,res) =>{
-res.send('user deleted')
- };
- 
 module.exports = {
-    getUsers,
-    getUser,
-    createUser,
-    updateUser,
-    deleteUser
+ getUsers,
+  getProfile,
+  updateUser,
+  deleteUser,
 };
