@@ -12,6 +12,7 @@ export default function NewToG() {
         </div>
         <div class="grid-item">
           <h3>The Better News</h3>
+
           <p>You can learn German with others and have fun doing it</p>
         </div>
       </div>

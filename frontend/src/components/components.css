@@ -226,4 +226,9 @@ Secondary color #D8D2B9  GOLD */
 .light{
     background-color: #fff;
     color: #333;
+
+#profilepic {
+width:200px;
+height: 300px;
+
 }
