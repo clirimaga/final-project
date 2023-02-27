@@ -6,13 +6,15 @@ import Register from './components/Register';
 import Resources from './components/Resources';
 import Profile from './components/Profile';
 import ChatRoom from './components/ChatRoom';
+import Navigator from './components/Navigator';
 
 function App() {
   return (
 
     <div className='container'>
-
+<Navigator />
     <Routes>
+  
     <Route path='/' element={<Homepage />} />
      <Route path='/login' element={<Login />} />
      <Route path='/register' element={<Register />} />

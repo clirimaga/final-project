@@ -133,3 +133,8 @@ Secondary color #D8D2B9  GOLD */
     background-repeat: no-repeat;
     background-size: cover;
 } */
+
+#profilepic {
+width:200px;
+height: 300px;
+}

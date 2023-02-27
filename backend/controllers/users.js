@@ -2,13 +2,15 @@ const User = require("../models/users");
 const { ErrorResponse } = require("../utils/ErrorResponse");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
+const {cloudinary} = require('../cloudinary/cloudinary');
+
 
 const getUsers = async (req, res, next) => {
   try {
     const users = await User.find({});
     res.json(users);
   } catch (error) {
-      res.status(500).send(error)
+    res.status(500).send(error);
   }
   // console.log(req.query);
   // try {
@@ -26,49 +28,54 @@ const getUsers = async (req, res, next) => {
 };
 
 const getProfile = async (req, res, next) => {
-  res.send("user");
-};
-
-const updateUser = async (req, res, next) => {
   try {
-    const { name, email, password, hobbies, pic, description, geometry } =
-      req.body;
-
-    const user = await User.findOne({ email });
-    if (user) throw new ErrorResponse("User already exists", 400);
-
-    const hash = await bcrypt.hash(password, 5);
-    const updatedUser = await User.findOneAndUpdate({
-      name,
-      email,
-      password: hash,
-      pic,
-      hobbies,
-      description,
-      geometry,
-    });
-
-    const payload = { id: newUser._id, email: newUser.email };
-    const token = jwt.sign(payload, process.env.JWT_SECRET, {
-      expiresIn: "8h",
-    });
-
-    res
-      .cookie("access_token", token, {
-        maxAge: 1000 * 60 * 60 * 8,
-      })
-      .send(payload);
+    const { id } = req.user;
+    const profile = await User.findById(id);
+    res.send(profile);
   } catch (error) {
     next(error);
   }
 };
+
+const updateUser = async (req, res, next) => {
+  try {
+    const { id } = req.user;
+    // console.log(req.body);
+    const { name, hobbies, description, germanLevel, pic } = req.body;
+    const uploadedImage = await cloudinary.uploader.unsigned_upload(
+      pic,'unsigned');
+      
+    const profile = await User.findByIdAndUpdate(
+      id,
+      { name, hobbies, description, germanLevel, pic: uploadedImage.secure_url },
+      { new: true }
+    );
+    res.json(profile);
+  } catch (error) {
+    next(error);
+  }
+};
+
+// const result = await cloudinary.uploader.unsigned_upload(file, "xg7q0vue");
+
+//     const post = await Post.create({
+//       title,
+//       author,
+//       description,
+//       image: result.secure_url,
+//     });
+
+//     res.json(post);
+
+
+
 
 const deleteUser = async (req, res, next) => {
   res.send("user deleted");
 };
 
 module.exports = {
- getUsers,
+  getUsers,
   getProfile,
   updateUser,
   deleteUser,
