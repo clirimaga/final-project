@@ -7,14 +7,15 @@ import Resources from './components/Resources';
 import PeopleNearBy from './components/PeopleNearBy'
 import ChatRoom from './components/Chatroom';
 import Profile from './components/Profile';
+import { ToastContainer } from 'react-toastify';
 import Navigator from './components/Navigator';
-
 
 function App() {
   return (
 
     <div className='container'>
-<Navigator />
+    <ToastContainer />
+    <Navigator />
     <Routes>
   
      <Route path='/' element={<Homepage />} />
