@@ -13,7 +13,7 @@ function Slider() {
   ];
 
 
-  return ( <div className = 'row' data-aos="fade-down">
+  return ( <div className = 'row mt-5' data-aos="fade-down">
     <div className = 'col' >
     <Carousel autoPlay={true}
     interval={4000}

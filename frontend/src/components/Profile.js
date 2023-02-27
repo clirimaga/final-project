@@ -48,10 +48,12 @@ function Profile() {
   
       </div> 
       <div className="d-flex  justify-content-between">
-          <button className="btn-navlinks" onClick={handleShow}>
+          <button className="button text-white" onClick={handleShow}>
             Edit Profile
           </button>
-          <NavLink to="/peoplenearby" className="btn-navlinks">See people nearby</NavLink>
+          <NavLink to="/people-nearby"className="nav-link"><button className='button text-white' >
+                See people nearby
+                </button></NavLink>
       </div>
       {/* <Photo /> */}
       <EditProfile setShow={setShow} show={show} handleClose={handleClose} profile={profile} setProfile={setProfile}/>

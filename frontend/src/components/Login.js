@@ -18,11 +18,10 @@ const submit = (e) =>{
 }
 
   return (
-    <div className="container-fluid">
-      <Navigator />
+    <div className="container-fluid login">
       <div className="row">
         <div className="col-md-8 mx-auto">
-        <div className="card mt-5 position-relative login" >
+        <div className="card mt-5 position-relative " >
           
             <div className="card-body">
               <h2 className="card-title text-center mb-4">Login</h2>
@@ -33,13 +32,16 @@ const submit = (e) =>{
                 <Form.Group controlId="formBasicPassword">
                   <Form.Control type="password" placeholder="Password" onChange={e=>{setPassword(e.target.value)}}/>
                 </Form.Group>
-                <input className='btn-navlinks' type="submit" onSubmit={submit}
-                  Login
-                />
+                <Button className='button text-white' type="submit" onSubmit={submit}>
+                Login
+                </Button>
+          
               </Form>
-              <p className="text-center mt-3 text-gold">
+              <p className="text-center mt-3 ">
                 Don't have an account yet?
-              <NavLink to="/register" className="nav-link btn-navlinks">Sign Up</NavLink>
+              <NavLink to="/register" className="nav-link"><Button className='button text-white' >
+                Sign up
+                </Button></NavLink>
               </p>
             
 

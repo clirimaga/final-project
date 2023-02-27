@@ -1,64 +1,37 @@
 /* Main color #0A3939 DARK GREEN
 Secondary color #D8D2B9  GOLD */
 
-.btn-navlinks{
+.navbar{
+    background-color: #0e4d4d;
+    color:white;
+}
+
+.navlink{
+    color:white;
+    text-decoration: none;
     padding: 5px;
-    border-radius: 3px;
+}
+.navlink:hover {
     color:#D8D2B9;
+}
+
+.button {
     background-color: #0A3939;
 }
 
-.btn-navlinks:hover{
-    color:#0A3939;
-    background-color: #D8D2B9;
+.button:hover {
+    background-color: #116161;
 }
-
-
-/* .navbar-brand{
-    padding: 5px;
-    border-radius: 3px;
-    color:#D8D2B9;
-    background-color: #0A3939;
-}
-
-.navbar-brand:hover{
-    color:#0A3939;
-    background-color: #D8D2B9;
-}
-
-.nav-link{
-    padding: 5px;
-    border-radius: 3px;
-    color:#D8D2B9;
-    background-color: #0A3939;
-    margin-left: 5px;
-}
-.nav-link:hover{
-    color:#0A3939;
-    background-color: #D8D2B9;
-}
-
-.button{
-    padding: 5px;
-    border-radius: 3px;
-    color:#D8D2B9;
-    background-color: #0A3939;
-}
-
-.button:hover{
-    color:#0A3939;
-    background-color: #D8D2B9;
-} */
-
-
 
 .login{
+    min-height: 80vh;
     background-image: url('https://res.cloudinary.com/dffxhlnzz/image/upload/v1677059129/wave_6_ax8g3s.svg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 .register{
+    min-height: 80vh;
     background-image: url('https://res.cloudinary.com/dffxhlnzz/image/upload/v1677059129/wave_6_ax8g3s.svg');
     background-position: center;
     background-repeat: no-repeat;
@@ -138,16 +111,16 @@ Secondary color #D8D2B9  GOLD */
     grid-template-columns: auto auto auto;
     display: flex;
     justify-content: center;
-    margin-top: 40px;
-    margin-bottom: 40px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
   }
   
   .grid-item {
     width: 650px;
     border-left: 1px solid black;
     background-color: rgba(255, 255, 255, 0.8);
-    padding: 20px;
-    font-size: 30px;
+    padding: 1.1rem;
+    font-size: 1.3rem;
     text-align: center;
     border-bottom:none;
   }
@@ -225,10 +198,14 @@ Secondary color #D8D2B9  GOLD */
 
 .light{
     background-color: #fff;
-    color: #333;
+    color: #333;}
 
 #profilepic {
 width:200px;
 height: 300px;
+}
 
+.footer{
+    background-color: #0e4d4d;
+    color:white;
 }

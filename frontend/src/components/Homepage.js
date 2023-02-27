@@ -11,13 +11,11 @@ import Persons from './Persons';
 export default function Homepage() {
   return (
     <div className='container'>
-         <Navigator />
          <Slider />
          <NewToG />
          <Events />
          <Stats />
          <Persons />
-         <Footer />
     </div>
   )
 }

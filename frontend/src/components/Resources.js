@@ -5,8 +5,6 @@ import Carousel from "react-bootstrap/Carousel";
 export default function Resources() {
   return (
     <div className="container">
-      <Navigator />
-
       <Carousel controls={false} indicators={false}>
         <Carousel.Item>
           <img

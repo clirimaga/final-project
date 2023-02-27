@@ -16,11 +16,10 @@ function Register() {
   }
 
   return (
-    <div className="container-fluid">
-      <Navigator />
+    <div className="container-fluid register">
       <div className="row">
         <div className="col-md-8 mx-auto">
-        <div className="card mt-5 position-relative register">
+        <div className="card mt-5 position-relative ">
           
             <div className="card-body">
               <h2 className="card-title text-center mb-4">Register</h2>
@@ -43,12 +42,14 @@ function Register() {
                   
                   <Form.Control type="password" placeholder="Password" />
                 </Form.Group> */}
-                <Button className='btn-navlinks' type="submit">
+                <Button className='button' type="submit">
                   Register
                 </Button>
               </Form>
-              <p className="text-center mt-3 text-gold">
-                Already have an account? <NavLink to="/login" className="nav-link btn-navlinks">Sign In</NavLink>
+              <p className="text-center mt-3 ">
+                Already have an account? <NavLink to="/login" className="nav-link"><Button className='button text-white' >
+                Sign in
+                </Button></NavLink>
               </p>
              
 

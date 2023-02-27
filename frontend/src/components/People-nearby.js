@@ -17,7 +17,7 @@ function PeopleNearBy() {
                     <div className='nearByTop'>
                         <div className='nearByData'>
                             <h5>name:`${undefined}`, distance:`${undefined}` away</h5>
-                            <button onClick={undefined} className='messageButton'>Send message</button>
+                            <button onClick={undefined} className='messageButton '>Send message</button>
                         </div>
                         <p>${}</p>
                     </div>
