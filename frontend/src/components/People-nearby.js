@@ -2,21 +2,15 @@ import './components.css'
 import Navigator from './Navigator';
 
 
+
 function PeopleNearBy() {
     return(
         <div>
- 
-            <Navigator />
- 
             <select className='nearBySelect'>
-                <option value="500m">500m</option>
-                <option value="1km">1km</option>
-                <option value="2km">2km</option>
-                <option value="4km">4km</option>
-                <option value="8km">8km</option>
-                <option value="16km">16km</option>
-                <option value="32km">32km</option>
-                <option value="64km">64km</option>
+                <option value="5km">5km</option>
+                <option value="10km">10km</option>
+                <option value="15km">15km</option>
+                <option value="+20km">+20km</option>
             </select>
 
                 <div className='nearByCard'>

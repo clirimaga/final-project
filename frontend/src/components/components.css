@@ -218,10 +218,12 @@ Secondary color #D8D2B9  GOLD */
     justify-content: space-between;
 }
 
-.dark {
-    background-color: black;
+.dark{
+    background-color:  #333;
+    color: #fff;
 }
 
-.dark h1 h2 h3 h4 h5 p {
-    color: white;
+.light{
+    background-color: #fff;
+    color: #333;
 }

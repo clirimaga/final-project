@@ -1,6 +1,7 @@
 import React from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
 import { NavLink, useLocation } from 'react-router-dom';
+import DarkMode from './DarkMode';
 
 function Navigator() {
   const location = useLocation();
@@ -20,8 +21,9 @@ function Navigator() {
           {location.pathname !== '/helpful-resources'  && location.pathname !== '/login' && location.pathname !== '/register' && <NavLink to="/peopleNearBy" className="nav-link btn-navlinks">Near me</NavLink>}
           {location.pathname !== '/helpful-resources'  && location.pathname !== '/login' && location.pathname !== '/register' && <NavLink to="/ChatRoom" className="nav-link btn-navlinks">chat room</NavLink>}
         </Nav>
-
+      
       </Navbar.Collapse>
+      <DarkMode />
     </Navbar>
   );
 }
