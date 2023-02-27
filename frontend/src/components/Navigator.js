@@ -1,7 +1,11 @@
 import React, {useContext} from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
 import { NavLink, useLocation } from 'react-router-dom';
+
 import { AuthContext } from './context/AuthProvider';
+
+import DarkMode from './DarkMode';
+
 
 function Navigator() {
   const location = useLocation();
@@ -20,7 +24,6 @@ function Navigator() {
           
         ) : null}
         
-
           {user ? (
             <button onClick={() => logout()}>Logout</button>
           ) : (
@@ -28,10 +31,11 @@ function Navigator() {
             <NavLink to="/login">Sign in</NavLink>
             <NavLink to="/register">Sign up</NavLink>
             </>
-          )}  
+          )} 
         </Nav>
-
+      
       </Navbar.Collapse>
+      <DarkMode />
     </Navbar>
   );
 }

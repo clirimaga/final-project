@@ -6,10 +6,12 @@ const {
     updateUser,
     deleteUser
 } = require('../controllers/users');
+const {verifyToken} =require('../middlewares/verifyToken');
+
 
 userRouter.get('/',getUsers)
-userRouter.get('/profile',getProfile);
-userRouter.put('/:id',updateUser);
-userRouter.delete('/:id',deleteUser);
+userRouter.get('/profile',verifyToken,getProfile);
+userRouter.put('/profile',verifyToken,updateUser);
+userRouter.delete('/profile',deleteUser);
 
 module.exports = {userRouter};

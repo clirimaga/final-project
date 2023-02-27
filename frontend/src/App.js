@@ -4,23 +4,27 @@ import Homepage from './components/Homepage';
 import Login from './components/Login';
 import Register from './components/Register';
 import Resources from './components/Resources';
+import PeopleNearBy from './components/PeopleNearBy'
+import ChatRoom from './components/Chatroom';
 import Profile from './components/Profile';
-import ChatRoom from './components/ChatRoom';
 import { ToastContainer } from 'react-toastify';
+import Navigator from './components/Navigator';
+
 function App() {
   return (
 
     <div className='container'>
     <ToastContainer />
+    <Navigator />
     <Routes>
-    <Route path='/' element={<Homepage />} />
+  
+     <Route path='/' element={<Homepage />} />
      <Route path='/login' element={<Login />} />
      <Route path='/register' element={<Register />} />
      <Route path='/helpful-resources' element={<Resources />} />
+     <Route path='/people-nearby' element={<PeopleNearBy />} />
+     <Route path='/chatRoom' element={<ChatRoom />} />
      <Route path='/profile' element={<Profile />} />
-     {/*<Route path='/people-nearby' element={<Nearby />} /> */}
-     <Route path='/ChatRoom' element={<ChatRoom />} />
-     {/*<Route path='/people-nearby' element={<Nearby}*/}
   
     </Routes>
     </div>
