@@ -6,12 +6,12 @@ import Register from './components/Register';
 import Resources from './components/Resources';
 import Profile from './components/Profile';
 import ChatRoom from './components/ChatRoom';
-
+import { ToastContainer } from 'react-toastify';
 function App() {
   return (
 
     <div className='container'>
-
+    <ToastContainer />
     <Routes>
     <Route path='/' element={<Homepage />} />
      <Route path='/login' element={<Login />} />

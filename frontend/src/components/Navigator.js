@@ -1,10 +1,11 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
 import { NavLink, useLocation } from 'react-router-dom';
+import { AuthContext } from './context/AuthProvider';
 
 function Navigator() {
   const location = useLocation();
-
+  const {user, logout} = useContext(AuthContext);
   return (
 
     <Navbar bg="light" expand="lg">
@@ -13,10 +14,21 @@ function Navigator() {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ms-auto">
-          {location.pathname !== '/helpful-resources'  && location.pathname !== '/login' && location.pathname !== '/register' && <NavLink to="/login" className="nav-link btn-navlinks">Sign In</NavLink>}
-          {location.pathname !== '/helpful-resources'  && location.pathname !== '/login' && location.pathname !== '/register' && <NavLink to="/register" className="nav-link btn-navlinks">Sign Up</NavLink>}
-          {location.pathname === '/helpful-resources'  && <NavLink to="#" className="nav-link btn-navlinks">My Profile</NavLink>}
-          {location.pathname === '/helpful-resources'  && <NavLink to="#" className="nav-link btn-navlinks">Log Out</NavLink>}
+        {user ? (
+          
+            <NavLink to="/profile">Profile</NavLink>
+          
+        ) : null}
+        
+
+          {user ? (
+            <button onClick={() => logout()}>Logout</button>
+          ) : (
+            <>
+            <NavLink to="/login">Sign in</NavLink>
+            <NavLink to="/register">Sign up</NavLink>
+            </>
+          )}  
         </Nav>
 
       </Navbar.Collapse>

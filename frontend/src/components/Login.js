@@ -5,6 +5,8 @@ import Navigator from './Navigator';
 import { AuthContext } from './context/AuthProvider';
 
 
+
+
 function Login() {
   const {login} = useContext(AuthContext);
 const [email,setEmail] = useState('');

@@ -1,6 +1,8 @@
 import React,{createContext,useState,useEffect} from 'react'
 import axiosClient from '../axiosClient';
 import { useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 export const AuthContext = createContext();
@@ -27,9 +29,19 @@ const login= (email,password)=>{
     setUser(res.data)
     navigate('/profile')
 })
-.catch(err=>console.log(err))
+.catch((err) => {
+  console.log(err);
+  if (err.response && err.response.status === 401) {
+    toast.error('Invalid email or password. Please try again.', {
+      position: toast.POSITION.TOP_CENTER,
+    });
+  } else {
+    toast.error('Login failed. Please try again later.', {
+      position: toast.POSITION.BOTTOM_CENTER,
+    });
 }
-
+});
+};
 const signup= (name,email,password)=>{
   axiosClient
   .post('/auth/signup',{name,email,password})
