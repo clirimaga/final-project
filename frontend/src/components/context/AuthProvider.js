@@ -27,7 +27,8 @@ const login= (email,password)=>{
     setUser(res.data)
     navigate('/profile')
 })
-.catch(err=>console.log(err))
+.catch(err=>
+  console.log(err))
 }
 
 const signup= (name,email,password)=>{
