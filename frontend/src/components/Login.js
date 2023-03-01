@@ -58,16 +58,3 @@ const submit = (e) =>{
 
 export default Login;
 
-// {
-//   "name": "clirim",
-//   "email": "cliriim@aaaaaaa.com",
-//   "pic": "https://upload.wikimedia.org/wikipedia/en/thumb/b/ba/Flag_of_Germany.svg/640px-Flag_of_Germany.svg.png",
-//   "password": "123",
-//   "description": "i am clirim",
-//   "hobbies": ["football","basketball"],
-//   "germanLevel": "B1",
-//   "geometry": {
-//       "type": "point",
-//       "coordinates": [41.20, 21.91]
-//   }
-//   }

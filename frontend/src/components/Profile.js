@@ -5,14 +5,18 @@ import EditProfile from "./EditProfile";
 import axiosClient from "./axiosClient";
 import { NavLink } from 'react-router-dom';
 import './components.css'
+import Spinner from 'react-bootstrap/Spinner';
+
+
 
 function Profile() {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const [profile, setProfile] = useState({});
-
+  const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
+    setIsLoading(true);
     axiosClient
       .get("/users/profile")
       .then((res) => {
@@ -23,11 +27,34 @@ function Profile() {
         //   console.log(res.data)
         // }
         setProfile(res.data);
+        const timer = setTimeout(() => {
+          // Load data here...
+          setIsLoading(false);
+        }, 3000);
+    
+        return () => clearTimeout(timer);
+    
+        
       })
       .catch((err) => console.log(err));
   }, []);
 
   return (
+    <div>
+      {isLoading ? (
+         <div className="d-flex justify-content-center align-items-center">
+       
+        <Spinner
+          type="TailSpin"
+          color="#00BFFF"
+          height={80}
+          width={80}
+        />
+        
+        </div>
+      ) : (
+        
+      
     <>
       <div className="row profile m-5 ">
 
@@ -58,6 +85,8 @@ function Profile() {
       {/* <Photo /> */}
       <EditProfile setShow={setShow} show={show} handleClose={handleClose} profile={profile} setProfile={setProfile}/>
       </>
+      )}
+      </div>
   );
 }
 

@@ -8,6 +8,7 @@ import DarkMode from './DarkMode';
 function Navigator() {
   const location = useLocation();
   const {user, logout} = useContext(AuthContext);
+  
   return (
 
     <Navbar className='navbar' expand="lg">

@@ -11,12 +11,16 @@ import { ToastContainer } from 'react-toastify';
 import Navigator from './components/Navigator';
 import Footer from './components/Footer';
 
+
+
 function App() {
+
   return (
 
     <div className='container'>
     <ToastContainer />
     <Navigator />
+    
     <Routes>
   
      <Route path='/' element={<Homepage />} />
