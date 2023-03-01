@@ -1,6 +1,7 @@
 import { BsHeadphones, BsFilm, BsBook } from 'react-icons/bs';
 import Navigator from './Navigator';
 import Carousel from "react-bootstrap/Carousel";
+import { TypeAnimation } from 'react-type-animation';
 
 export default function Resources() {
   return (
@@ -63,6 +64,45 @@ export default function Resources() {
           </div>
         </div>
       </div>
+      <div className='my-5 text-center' > <TypeAnimation
+    sequence={[
+    'Übung macht den Meister (Practice makes perfect)',
+    1000,
+    ' Bald reif hält nicht steif (Early ripe, early rotten)',
+    1000,
+    'Nur die Harten kommen in den Garten (Only the strongest survive)',
+    1000,
+    'Alles hat ein Ende, nur die Wurst hat zwei (Everything has an end, only the sausage has two)',
+    1000,
+    ' Kleinvieh macht auch Mist (Small amounts add up to something bigger)',
+    1000,
+    'Das Leben ist kein Ponyhof (You can not always get what you want)',
+    1000,
+    'Kinder und Betrunkene sagen immer die Wahrheit (Children and fools tell the truth)',
+    1000,
+    ' Wenn man dem Teufel den kleinen Finger gibt, so nimmt er die ganze Hand. (Give an inch; they will take a mile)',
+    1000,
+    'Klappe zu, Affe tot (Let us end this)',
+    1000,
+    'Was ich nicht weiß, macht mich nicht heiß (What I do not know can not hurt me)',
+    1000,
+    'Was Hänschen nicht lernt, lernt Hans nimmermehr (You cannot teach an old dog new tricks)',
+    1000,
+    'Stochere nicht im Bienenstock (Let sleeping dogs lie)',
+    1000,
+    'Wo sich die Füchse gute Nacht sagen (The back of beyond)',
+    1000,
+    'Besser ein Spatz in der Hand, als eine Taube auf dem Dach (A bird in the hand is worth two in the bush)',
+    1000,
+    'Arbeit ist die beste Jacke (The best way to warm yourself up is by doing something useful)',
+    1000,
+    
+    ]}
+    speed={50} // Custom Speed from 1-99 - Default Speed: 40
+    style={{ fontSize: '2em' }}
+    wrapper="span" // Animation will be rendered as a <span>
+    repeat={Infinity} // Repeat this Animation Sequence infinitely
+  /></div>
     </div>
   );
 }
