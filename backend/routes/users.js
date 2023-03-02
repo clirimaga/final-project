@@ -9,7 +9,7 @@ const {
 const {verifyToken} =require('../middlewares/verifyToken');
 
 
-userRouter.get('/',getUsers)
+userRouter.get('/',verifyToken,getUsers)
 userRouter.get('/profile',verifyToken,getProfile);
 userRouter.put('/profile',verifyToken,updateUser);
 userRouter.delete('/profile',deleteUser);
