@@ -63,8 +63,17 @@ const logout= ()=>{
       navigate('/')
   }) }
 
+ const deleteProfile = ()=>{
+    axiosClient
+    .delete('/users/profile')
+    .then(res=>{
+      console.log(res.data)
+      setUser(null)
+      navigate('/register')
+  }) }
+
   return (
-    <AuthContext.Provider value={{user,loading,login,logout,signup}} >
+    <AuthContext.Provider value={{user,loading,login,logout,signup,deleteProfile}} >
     {children}
     </AuthContext.Provider>
   )

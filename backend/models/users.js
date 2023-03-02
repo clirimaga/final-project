@@ -12,7 +12,7 @@ const userSchema = new Schema({
   pic: {
     type: String,
     default:
-      "https://res.cloudinary.com/dffxhlnzz/image/upload/v1677059129/wave_6_ax8g3s.svg",
+      "https://res.cloudinary.com/dffxhlnzz/image/upload/v1677251927/1206832_li2jol.jpg",
   },
   password: {
     type: String,

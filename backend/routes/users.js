@@ -12,6 +12,6 @@ const {verifyToken} =require('../middlewares/verifyToken');
 userRouter.get('/',verifyToken,getUsers)
 userRouter.get('/profile',verifyToken,getProfile);
 userRouter.put('/profile',verifyToken,updateUser);
-userRouter.delete('/profile',deleteUser);
+userRouter.delete('/profile',verifyToken,deleteUser);
 
 module.exports = {userRouter};
