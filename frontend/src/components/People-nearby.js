@@ -2,6 +2,7 @@ import "./components.css";
 import { useState, useEffect } from "react";
 import axiosClient from "./axiosClient";
 import { Roller } from "react-awesome-spinners";
+import Card from "react-bootstrap/Card";
 
 function PeopleNearBy() {
   const [users, setUsers] = useState([]);
@@ -13,12 +14,6 @@ function PeopleNearBy() {
     // .get(`/users`)
       .get(`/users?radius=${distance}`)
       .then((res) => {
-        // console.log(res.data);
-        // if(res.data.geometry) {
-        //  console.log(res.data)
-        // }else{
-        //   console.log(res.data)
-        // }
         setUsers(res.data);
         setLoading(false);
       })
@@ -26,18 +21,19 @@ function PeopleNearBy() {
   }, [distance]);
 
   return (
-    <div className="row usersNearby">
-
-    
+    <div className="row usersNearby m-5">
+      <div className="col-12 d-flex text-center">
       <select
-        className="col-3 nearBySelect"
+        className="nearBySelect"
         onChange={(e) => setDistance(e.target.value)}
-      >
+        >
         <option value={5000}>5km</option>
         <option value={10000}>10km</option>
         <option value={20000}>20km</option>
         <option value={50000}>50km</option>
       </select>
+      <h1>Users Nearby</h1>
+        </div>
 
     
       {loading ? (
@@ -45,18 +41,18 @@ function PeopleNearBy() {
           ) : (
               users.map((user) => {
                   return (
-                      <div className="userNearby border col-12 d-flex justify-content-between my-5 flex-wrap text-center shadow" key={user._id}>
-              <div className=' col-6 m-5 d-flex flex-column justify-content-around'>
-                <h1>{user.name}</h1>
-                <p>{user.description}</p>
-                <p>Hobbies:{user.hobbies}</p>
-                <p>German Level:{user.germanLevel}</p>
+                     <div className="userNearby border col-12 d-flex justify-content-between my-5 flex-wrap text-center shadow" key={user._id}>
+                <div className=' col-6 m-5 d-flex flex-column justify-content-around'>
+                  <h1>{user.name}</h1>
+                  <p>{user.description}</p>
+                  <p>Hobbies:{user.hobbies}</p>
+                  <p>German Level:{user.germanLevel}</p>
+                  <button className="btn btn-success">Send Message</button>
+                </div>
+                <div className='col-4 d-flex flex-column justify-content-center '>
+                  <img className="userpic" src={user.pic} alt="userpic" />
+                </div>
               </div>
-              <div className='col-4 d-flex flex-column justify-content-center '>
-                <img className="userpic" src={user.pic} alt="userpic" />
-              </div>
-                <button className="button text-white">Send Message</button>
-            </div>
           );
         })
         )}
@@ -76,3 +72,17 @@ export default PeopleNearBy;
                         <img className='nearByImage'/>
                     </div>
                 </div> */}
+
+
+              //   <div className="userNearby border col-12 d-flex justify-content-between my-5 flex-wrap text-center shadow" key={user._id}>
+              //   <div className=' col-6 m-5 d-flex flex-column justify-content-around'>
+              //     <h1>{user.name}</h1>
+              //     <p>{user.description}</p>
+              //     <p>Hobbies:{user.hobbies}</p>
+              //     <p>German Level:{user.germanLevel}</p>
+              //     <button className="btn btn-success">Send Message</button>
+              //   </div>
+              //   <div className='col-4 d-flex flex-column justify-content-center '>
+              //     <img className="userpic" src={user.pic} alt="userpic" />
+              //   </div>
+              // </div>

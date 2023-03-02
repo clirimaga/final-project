@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Button, Form, Modal } from "react-bootstrap";
 import axiosClient from "./axiosClient";
-//import multer from 'multer';
-//import cloudinary from 'cloudinary';
 import Img from "./Img";
 
 function EditProfile({setShow, show, handleClose, profile, setProfile }) {
@@ -114,7 +112,7 @@ function EditProfile({setShow, show, handleClose, profile, setProfile }) {
         <Button variant="secondary" onClick={handleClose}>
           Close
         </Button>
-        <Button variant="primary" onClick={updateUser}>
+        <Button variant="success" onClick={updateUser}>
           Save Changes
         </Button>
       </Modal.Footer>

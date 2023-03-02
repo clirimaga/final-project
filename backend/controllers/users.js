@@ -18,7 +18,7 @@ const users = await User.aggregate([
   {$geoNear: {
     near: { type: "Point", coordinates: [ profile.location.coordinates[0], profile.location.coordinates[1]] },
     distanceField: "distance",
-    maxDistance: +radius,
+    maxDistance: 1000000000000000000000,
     spherical: true
  }
   }]
@@ -77,9 +77,15 @@ const updateUser = async (req, res, next) => {
 };
 
 const deleteUser = async (req, res, next) => {try {
+  console.log(req.user)
   const { id } = req.user;
   const profile = await User.findByIdAndDelete(id);
-  res.send('Account deleted');
+  res
+  .cookie("access_token", "", {
+    httpOnly: true,
+    maxAge: 0
+  })
+  .json({status:"success", message:"Account deleted successfully"});
 } catch (error) {
   next(error);
 }
