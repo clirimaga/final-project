@@ -43,16 +43,23 @@ const login= (email,password)=>{
 }
 });
 };
-const signup= (name,email,password)=>{
+const signup = (name, email, password) => {
   axiosClient
-  .post('/auth/signup',{name,email,password})
-  .then(res=>{
-    console.log(res.data)
-    // setUser(res.data)
-    navigate('/login')
-})
-.catch(err=>console.log(err))
-}
+    .post('/auth/signup', { name, email, password })
+    .then((res) => {
+      console.log(res.data);
+      toast.success('Signup successful!');
+      navigate('/login');
+    })
+    .catch((err) => {
+      console.log(err);
+      if (err.response.status === 409) {
+        toast.error('Email already exists');
+      } else {
+        toast.error('Something went wrong');
+      }
+    });
+};
 
 const logout= ()=>{
     axiosClient
@@ -61,6 +68,7 @@ const logout= ()=>{
       // console.log(res.data)
       setUser(null)
       navigate('/')
+      toast.success('Logout successful!');
   }) }
 
  const deleteProfile = ()=>{

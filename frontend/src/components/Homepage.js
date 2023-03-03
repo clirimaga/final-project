@@ -12,7 +12,10 @@ export default function Homepage() {
   return (
     <div className='container'>
          <Slider />
+         
          <NewToG />
+         <br/>
+         <br/>
          <Events />
          <Stats />
          <Persons />

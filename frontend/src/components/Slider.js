@@ -8,8 +8,8 @@ function Slider() {
   AOS.init();
   const images = [
     { url: "https://res.cloudinary.com/dlbenbmke/image/upload/v1676652372/image1_hge4c3.jpg" },
-    { url: "https://res.cloudinary.com/dlbenbmke/image/upload/v1676652372/image2_m4d3v0.jpg" },
-    { url: "https://res.cloudinary.com/dlbenbmke/image/upload/v1676652375/image3_niftz9.png"},
+    { url: "https://res.cloudinary.com/dlbenbmke/image/upload/v1677532787/priscilla-du-preez-XkKCui44iM0-unsplash_dcuczx.jpg" },
+    { url: "https://res.cloudinary.com/dlbenbmke/image/upload/v1677532753/element5-digital-jCIMcOpFHig-unsplash_wb8o9o.jpg"},
   ];
 
 
@@ -18,7 +18,7 @@ function Slider() {
     <Carousel autoPlay={true}
     interval={4000}
     controls={false}
-    indicators={false}
+    
     infiniteLoop={true}>
       {images.map((image) => (
         <div key={image.url}>
