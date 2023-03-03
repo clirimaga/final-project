@@ -17,6 +17,7 @@ function Navigator() {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ms-auto">
+        
         {user ? (
           
             <NavLink to="/profile" className='navlink'>Profile</NavLink>
@@ -27,6 +28,7 @@ function Navigator() {
             <button className='button text-white' onClick={() => logout()}>Logout</button>
           ) : (
             <>
+            
             <NavLink to="/login" className='navlink'>Sign in</NavLink>
             <NavLink to="/register" className='navlink'>Sign up</NavLink>
             </>
