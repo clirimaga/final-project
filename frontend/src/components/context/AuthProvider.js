@@ -36,7 +36,7 @@ const login= (email,password)=>{
       position: toast.POSITION.TOP_CENTER,
     });
   } else {
-    toast.error('Login failed. Please try again later.', {
+    toast.error(err.response.data, {
       position: toast.POSITION.BOTTOM_CENTER,
     });
 
@@ -58,7 +58,7 @@ const logout= ()=>{
     axiosClient
     .get('/auth/logout')
     .then(res=>{
-      console.log(res.data)
+      // console.log(res.data)
       setUser(null)
       navigate('/')
   }) }
@@ -71,7 +71,6 @@ const logout= ()=>{
       setUser(null)
       navigate('/register')
   }) }
-
   return (
     <AuthContext.Provider value={{user,loading,login,logout,signup,deleteProfile}} >
     {children}

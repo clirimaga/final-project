@@ -24,14 +24,14 @@ Secondary color #D8D2B9  GOLD */
 }
 
 .login{
-    min-height: 80vh;
+    min-height: 88vh;
     background-image: url('https://res.cloudinary.com/dffxhlnzz/image/upload/v1677059129/wave_6_ax8g3s.svg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 .register{
-    min-height: 80vh;
+    min-height: 88vh;
     background-image: url('https://res.cloudinary.com/dffxhlnzz/image/upload/v1677059129/wave_6_ax8g3s.svg');
     background-position: center;
     background-repeat: no-repeat;
@@ -225,3 +225,7 @@ box-shadow: 0px 0px 10px 10px rgba(10, 57, 57,0.2);
     max-width: 15rem;
     max-height: 20rem;
 }
+
+.navlink:active {
+border-bottom: #0c6f16;
+ }
