@@ -9,6 +9,7 @@ const cloudinary= require('./cloudinary/cloudinary')
 const { eventRouter } = require("./routes/events");
 const { userRouter } = require("./routes/users");
 const { authRouter } = require("./routes/auth");
+const { messagesRouter } = require("./routes/messages");
 const { errorHandler } = require("./middlewares/errorHandler");
 const cookieParser = require("cookie-parser");
 app.use(
@@ -27,6 +28,7 @@ app.get("/", (req, res) => {
 app.use("/events", eventRouter);
 app.use("/auth", authRouter);
 app.use("/users", userRouter);
+app.use("/messages", messagesRouter);
 app.use(errorHandler);
 const port = process.env.PORT;
 app.listen(port, () => {

@@ -29,22 +29,43 @@ io.on('connection', (socket) => {
 
 // Define router handlers
 const getMessages = async (req, res, next) => {
-  const { sender, recipient } = req.query;
-  const messages = await Message.find({ $or: [
-    { sender, recipient },
-    { sender: recipient, recipient: sender }
-  ]}).sort({ timestamp: 1 });
-  res.json(messages);
+  try {
+    const userId1 = Types.ObjectId(req.params.userId1);
+    const userId2 = Types.ObjectId(req.params.userId2);
+    const messages = await Message.find({
+      $or: [
+        { sender: userId1, receiver: userId2 },
+        { sender: userId2, receiver: userId1 }
+      ]
+    })
+      .populate('sender')
+      .populate('receiver')
+      .sort({ createdAt: 'asc' });
+    res.json({ messages });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Server error' });
+  }
 };
 
+
+
 const postMessages = async (req, res, next) => {
-    const { sender, recipient, message } = req.body;
-    if (!sender || !recipient || !message) {
-      return res.status(400).json({ message: 'Invalid request' });
+  try {
+    const { senderId, receiverId, message } = req.body;
+    const sender = await User.findById(senderId);
+    const receiver = await User.findById(receiverId);
+    if (!sender || !receiver) {
+      res.status(400).json({ error: 'Invalid sender or receiver ID' });
+      return;
     }
-    const newMessage = new Message({ sender, recipient, message });
+    const newMessage = new Message({ sender: sender._id, receiver: receiver._id, message });
     await newMessage.save();
-    res.json(newMessage);
+    res.json({ message: newMessage });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Server error' });
+  }
   };
   
 
