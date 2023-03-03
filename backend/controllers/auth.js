@@ -62,7 +62,7 @@ const logout = async (req, res, next) => {
       httpOnly: true,
       maxAge: 0
     })
-    .send("ok");
+    .json({status: 'success',message:'Logged out successfully'});
 };
 
 module.exports = {

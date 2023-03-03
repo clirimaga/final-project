@@ -10,9 +10,9 @@ try{
 // const radius = 0.1;
 const { id } = req.user;
     const profile = await User.findById(id);
-    console.log(profile.location.coordinates[0])
+    // console.log(profile.location.coordinates[0])
 
-console.log(req.query);
+// console.log(req.query);
 const {radius} = req.query;
 const users = await User.aggregate([
   {$geoNear: {
@@ -43,7 +43,7 @@ const getProfile = async (req, res, next) => {
 const updateUser = async (req, res, next) => {
   try {
     const { id } = req.user;
-    console.log(req.body);
+    // console.log(req.body);
     const { name, hobbies, description, germanLevel, pic, location } = req.body;
     if (pic) {
       const uploadedImage = await cloudinary.uploader.unsigned_upload(
@@ -64,6 +64,7 @@ const updateUser = async (req, res, next) => {
       );
       res.json(profile);
     } else {
+      // console.log(location,'fgds')
       const profile = await User.findByIdAndUpdate(
         id,
         { name, hobbies, description, germanLevel, location },
@@ -77,7 +78,7 @@ const updateUser = async (req, res, next) => {
 };
 
 const deleteUser = async (req, res, next) => {try {
-  console.log(req.user)
+  // console.log(req.user)
   const { id } = req.user;
   const profile = await User.findByIdAndDelete(id);
   res
@@ -97,25 +98,3 @@ module.exports = {
   updateUser,
   deleteUser,
 };
-
- // try {
-  //   const users = await User.find({});
-  //   res.json(users);
-  // } catch (error) {
-  //   res.status(500).send(error);
-  // }
-
-
-  // console.log(req.query);
-  // try {
-  //   const users = await User.geoNear(
-  //     {
-  //       type: "Point",
-  //       coordinates: [parseFloat(req.query.lng), parseFloat(req.query.lat)],
-  //     },
-  //     { maxDistance: 10000000, spherical: true }
-  //   );
-  //   res.send(users);
-  // } catch (error) {
-  //   console.log(error);
-  // }

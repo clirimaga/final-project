@@ -20,7 +20,7 @@ const userSchema = new Schema({
     select: false,
   },
   description: { type: String },
-  germanLevel: { type: String },
+  germanLevel: { type: String , default:'Beginner'},
   hobbies: [{ type: String }],
   location: {
     type: {

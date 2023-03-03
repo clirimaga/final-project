@@ -6,7 +6,7 @@ import Register from './components/Register';
 import Resources from './components/Resources';
 import PeopleNearBy from './components/People-nearby'
 import Profile from './components/Profile';
-import ChatRoom from './components/chatroom'
+import ChatRoom from './components/ChatRoom'
 import { ToastContainer } from 'react-toastify';
 import Navigator from './components/Navigator';
 import Footer from './components/Footer';
