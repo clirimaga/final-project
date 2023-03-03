@@ -5,6 +5,9 @@ export default function NewToG() {
   return (
     <div>
       <h1 className='Headingcenter'>NEW TO GERMANY?</h1>
+      <br />
+      <br />
+      <br />
       <div className="grid-container">
         <div className="grid-item lineLeft" >
           <h2>The Good News</h2>

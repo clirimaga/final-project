@@ -4,6 +4,7 @@ import { Form, Button } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import Navigator from './Navigator';
 import { AuthContext } from './context/AuthProvider';
+import { ToastContainer, toast } from 'react-toastify';
 function Register() {
   const {signup} = useContext(AuthContext);
   const [email,setEmail] = useState('');
@@ -17,6 +18,7 @@ function Register() {
 
   return (
     <div className="container-fluid register">
+      <ToastContainer />
       <div className="row">
         <div className="col-md-8 mx-auto">
         <div className="card mt-5 position-relative ">

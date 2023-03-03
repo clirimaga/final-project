@@ -21,6 +21,7 @@ export default function Events() {
     }, []);
   return (
   <div className="row d-flex justify-content-around" >
+ 
   <h1 className="text-center" data-aos="flip-left">Upcoming Events</h1>
   {events.map(event => {
     return <Card className="eventcard  col-3 m-5 flex-wrap" key={event.id} data-aos="zoom-in">
