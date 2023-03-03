@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 
 const ChatRoom = () => {
+  
   const [users, setUsers] = useState([
     { id: 1, name: 'John' },
     { id: 2, name: 'Jane' },
