@@ -33,10 +33,7 @@ export default function Persons() {
         <h2>Valeria</h2>
         <p>Coming from Italy.</p>
         <p>
-          I've been struggling a lot with almost everything related to the German language and especially the german grammar.
-          I found this website online and decided to give it a try.
-          Since then I have made a lot of friends and had a huge progress with my german skills.
-
+        I used to struggle alot learning german and i gave up a few times. But after i found this website i saw good progress and i saw alot of hope for the future. Since i started learning with this Website i saw amazing progress and met a few cool people to learn german with.
         </p>
         </div>
         <div className=''>
@@ -50,10 +47,7 @@ export default function Persons() {
         <h2>Alex</h2>
         <p>Coming from England.</p>
         <p>
-          I've been struggling a lot with almost everything related to the German language and especially the german grammar.
-          I found this website online and decided to give it a try.
-          Since then I have made a lot of friends and had a huge progress with my german skills.
-
+          Since i came from England i had alot of problems with learning german. Until i stumbled upon this website which helped me get a better grasp on the german language and how the german language works. I made some awesome friends through this website and learned alot of german too.
         </p>
         </div>
         <div className=''>
