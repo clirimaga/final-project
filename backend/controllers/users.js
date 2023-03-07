@@ -4,30 +4,31 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const { cloudinary } = require("../cloudinary/cloudinary");
 
-
 const getUsers = async (req, res, next) => {
-try{
-// const radius = 0.1;
-const { id } = req.user;
+  try {
+    const { id } = req.user;
     const profile = await User.findById(id);
-    // console.log(profile.location.coordinates[0])
-
-// console.log(req.query);
-const {radius} = req.query;
-const users = await User.aggregate([
-  {$geoNear: {
-    near: { type: "Point", coordinates: [ profile.location.coordinates[0], profile.location.coordinates[1]] },
-    distanceField: "distance",
-    maxDistance: 1000000000000000000000,
-    spherical: true
- }
-  }]
-)
-res.json(users)
-}
-catch (error) {
-  next(error)
-}
+    const { radius } = req.query;
+    const users = await User.aggregate([
+      {
+        $geoNear: {
+          near: {
+            type: "Point",
+            coordinates: [
+              profile.location.coordinates[0],
+              profile.location.coordinates[1],
+            ],
+          },
+          distanceField: "distance",
+          maxDistance: +radius,
+          spherical: true,
+        },
+      },
+    ]);
+    res.json(users);
+  } catch (error) {
+    next(error);
+  }
 };
 
 const getProfile = async (req, res, next) => {
@@ -43,8 +44,9 @@ const getProfile = async (req, res, next) => {
 const updateUser = async (req, res, next) => {
   try {
     const { id } = req.user;
-    // console.log(req.body);
-    const { name, hobbies, description, germanLevel, pic, location } = req.body;
+    console.log(req.body);
+    const { name, hobbies, description, germanLevel, pic, contact, location } =
+      req.body;
     if (pic) {
       const uploadedImage = await cloudinary.uploader.unsigned_upload(
         pic,
@@ -64,10 +66,9 @@ const updateUser = async (req, res, next) => {
       );
       res.json(profile);
     } else {
-      // console.log(location,'fgds')
       const profile = await User.findByIdAndUpdate(
         id,
-        { name, hobbies, description, germanLevel, location },
+        { name, hobbies, description, germanLevel, location, contact },
         { new: true }
       );
       res.json(profile);
@@ -77,19 +78,19 @@ const updateUser = async (req, res, next) => {
   }
 };
 
-const deleteUser = async (req, res, next) => {try {
-  // console.log(req.user)
-  const { id } = req.user;
-  const profile = await User.findByIdAndDelete(id);
-  res
-  .cookie("access_token", "", {
-    httpOnly: true,
-    maxAge: 0
-  })
-  .json({status:"success", message:"Account deleted successfully"});
-} catch (error) {
-  next(error);
-}
+const deleteUser = async (req, res, next) => {
+  try {
+    const { id } = req.user;
+    const profile = await User.findByIdAndDelete(id);
+    res
+      .cookie("access_token", "", {
+        httpOnly: true,
+        maxAge: 0,
+      })
+      .json({ status: "success", message: "Account deleted successfully" });
+  } catch (error) {
+    next(error);
+  }
 };
 
 module.exports = {

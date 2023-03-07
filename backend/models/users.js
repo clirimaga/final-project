@@ -22,6 +22,7 @@ const userSchema = new Schema({
   description: { type: String },
   germanLevel: { type: String , default:'Beginner'},
   hobbies: [{ type: String }],
+  contact: {type:String},
   location: {
     type: {
       type: String,

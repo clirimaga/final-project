@@ -15,7 +15,6 @@ useEffect(()=>{
     axiosClient
     .get('/users/profile')
     .then(res=>{
-      // console.log(res.data)
       setUser(res.data)
   })
   .catch(err=>console.log(err))
@@ -25,7 +24,6 @@ const login= (email,password)=>{
   axiosClient
   .post('/auth/login',{email,password})
   .then(res=>{
-    console.log(res.data)
     setUser(res.data)
     navigate('/profile')
 })
@@ -37,7 +35,7 @@ const login= (email,password)=>{
     });
   } else {
     toast.error(err.response.data, {
-      position: toast.POSITION.BOTTOM_CENTER,
+      position: toast.POSITION.TOP_CENTER,
     });
 
 }
@@ -47,16 +45,20 @@ const signup = (name, email, password) => {
   axiosClient
     .post('/auth/signup', { name, email, password })
     .then((res) => {
-      console.log(res.data);
-      toast.success('Signup successful!');
+      toast.success('Signup successful!',{
+        position: toast.POSITION.TOP_CENTER,
+      });
       navigate('/login');
     })
     .catch((err) => {
-      console.log(err);
       if (err.response.status === 409) {
-        toast.error('Email already exists');
+        toast.error(err.response.data, {
+          position: toast.POSITION.TOP_CENTER,
+        });
       } else {
-        toast.error('Something went wrong');
+        toast.error(err.response.data,{
+          position: toast.POSITION.TOP_CENTER,
+        });
       }
     });
 };
@@ -65,10 +67,12 @@ const logout= ()=>{
     axiosClient
     .get('/auth/logout')
     .then(res=>{
-      // console.log(res.data)
+      console.log(res.data)
       setUser(null)
       navigate('/')
-      toast.success('Logout successful!');
+      toast.success(res.data.message,{
+        position: toast.POSITION.TOP_CENTER,
+      });
   }) }
 
  const deleteProfile = ()=>{

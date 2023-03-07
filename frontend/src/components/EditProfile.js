@@ -3,25 +3,32 @@ import { Button, Form, Modal } from "react-bootstrap";
 import axiosClient from "./axiosClient";
 import Img from "./Img";
 
-function EditProfile({setShow, show, handleClose, profile, setProfile }) {
+function EditProfile({ setShow, show, handleClose, profile, setProfile }) {
   const [name, setName] = useState(profile.name);
   const [description, setDescription] = useState(profile.description);
   const [hobbies, setHobbies] = useState(profile.hobbies);
   const [germanLevel, setGermanLevel] = useState(profile.germanLevel);
+  const [contact, setContact] = useState(profile.contact);
   const [file, setFile] = useState("");
   const [pic, setPic] = useState("");
-  const [uploadedImg,setUploadedImg] =useState('');
+  const [uploadedImg, setUploadedImg] = useState("");
 
   const updateUser = async (e) => {
     e.preventDefault();
-    setShow(false)
+    setShow(false);
     try {
-       const result = await axiosClient
-          .put("/users/profile", { name, description, hobbies, germanLevel,pic })
-      setProfile(result.data)
-     } catch (error) {
-      console.log(error)
-     }
+      const result = await axiosClient.put("/users/profile", {
+        name,
+        description,
+        hobbies,
+        germanLevel,
+        contact,
+        pic,
+      });
+      setProfile(result.data);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const previewFiles = (file) => {
@@ -32,12 +39,10 @@ function EditProfile({setShow, show, handleClose, profile, setProfile }) {
       setPic(reader.result);
     };
     console.log(pic);
-
   };
 
   const fileChange = (e) => {
     const file = e.target.files[0];
-    // console.log(file);
     setFile(file);
     previewFiles(file);
   };
@@ -79,6 +84,16 @@ function EditProfile({setShow, show, handleClose, profile, setProfile }) {
             />
           </Form.Group>
 
+          <Form.Group controlId="formHobbies">
+            <Form.Label>Contact:</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Enter your Contact"
+              defaultValue={profile.contact}
+              onChange={(e) => setContact(e.target.value)}
+            />
+          </Form.Group>
+
           <Form.Group controlId="formLevel">
             <Form.Label>German Level:</Form.Label>
             <Form.Control
@@ -103,8 +118,8 @@ function EditProfile({setShow, show, handleClose, profile, setProfile }) {
               onChange={fileChange}
               accept="image/png,image/jpeg,image/jpg"
             />
-            <img src={pic} alt="img" style={{width:200}}/>
-            <Img uploadedImg={uploadedImg}/>
+            <img src={pic} alt="img" style={{ width: 200 }} />
+            <Img uploadedImg={uploadedImg} />
           </Form.Group>
         </Form>
       </Modal.Body>
