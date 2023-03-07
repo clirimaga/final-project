@@ -1,5 +1,4 @@
-
-
+import {BsSun,BsMoon} from 'react-icons/bs'
     import { useState,useEffect } from "react";
     import './components.css'
 // UseState
@@ -13,13 +12,12 @@
             }
         };
 // UseEffect
-        useEffect(() => {
-            document.body.className = theme;
+        useEffect(() => { document.body.className = theme;
         }, [theme]);
 
     return(
         <div>
-            <button onClick={toggleTheme}>{theme === 'light' ? 'night/Nacht':'day/Tag'}</button>
+            <button onClick={toggleTheme} className='darkmode'>{theme === 'light' ? <BsSun size="20px"/>:<BsMoon size="20px"/>}</button>
         </div>
     );
 }

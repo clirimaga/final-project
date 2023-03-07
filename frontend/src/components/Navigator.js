@@ -29,14 +29,15 @@ function Navigator() {
           ) : (
             <>
             
-            <NavLink to="/login" className='navlink'>Sign in</NavLink>
-            <NavLink to="/register" className='navlink'>Sign up</NavLink>
+            <NavLink to="/login" className='navbar-brand navlink'>Sign in</NavLink>
+            <NavLink to="/register" className='navbar-brand navlink'>Sign up</NavLink>
+            
             </>
           )} 
         </Nav>
       
       </Navbar.Collapse>
-      <DarkMode />
+      <DarkMode/>
     </Navbar>
   );
 }

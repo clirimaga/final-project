@@ -25,7 +25,7 @@ export default function Resources() {
 
       <div className="row mt-4">
         <div className="col-4">
-          <div className="card">
+          <div className="card soft-yellow">
             <div className="card-body text-center">
               <BsHeadphones size={64} />
               <h5 className="mt-2 mb-0">Audio Learning</h5>
@@ -39,7 +39,7 @@ export default function Resources() {
           </div>
         </div>
         <div className="col-4">
-          <div className="card">
+          <div className="card soft-yellow">
             <div className="card-body text-center">
               <BsFilm size={64} />
               <h5 className="mt-2 mb-0">Creative learning videos</h5>
@@ -52,7 +52,7 @@ export default function Resources() {
           </div>
         </div>
         <div className="col-4">
-          <div className="card">
+          <div className="card soft-yellow">
             <div className="card-body text-center">
               <BsBook size={64} />
               <h5 className="mt-2 mb-0">Learn anywhere in Germany</h5>

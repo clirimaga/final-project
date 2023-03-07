@@ -24,7 +24,7 @@ export default function Events() {
  
   <h1 className="text-center" data-aos="flip-left">Upcoming Events</h1>
   {events.map(event => {
-    return <Card className="eventcard  col-3 m-5 flex-wrap" key={event.id} data-aos="zoom-in">
+    return <Card className="eventcard col-3 m-5 flex-wrap soft-yellow" key={event.id} data-aos="zoom-in">
     <Card.Body className="d-flex flex-column justify-content-between">
     <Card.Img  src={event.pic} alt='eventpic'/>
       <Card.Title>{event.name}</Card.Title>

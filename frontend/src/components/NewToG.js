@@ -1,14 +1,15 @@
 import React from 'react';
 import './components.css'
-
+import 'aos/dist/aos.css';
 export default function NewToG() {
   return (
-    <div>
-      <h1 className='Headingcenter'>NEW TO GERMANY?</h1>
+    <div className="row d-flex justify-content-around" >
+ 
+  <h1 className="text-center" data-aos="flip-left">NEW TO GERMANY?</h1>
       <br />
       <br />
       <br />
-      <div className="grid-container">
+      <div className="grid-container soft-yellow">
         <div className="grid-item lineLeft" >
           <h2>The Good News</h2>
           <p>Learning German just got easier!</p>
