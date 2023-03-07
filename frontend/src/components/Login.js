@@ -106,7 +106,7 @@ const submit = (e) =>{
             }}
         />
             <div className="card-body">
-              <h2 className="card-title text-center mb-4">Login</h2>
+              <h2 className="card-title text-center text-black mb-4">Login</h2>
               <Form className='d-flex flex-column gap-3' onSubmit={submit}>
                 <Form.Group controlId="formBasicEmail">
                   <Form.Control type="email" placeholder="Email" onChange={e=>{setEmail(e.target.value)}} />
@@ -119,9 +119,9 @@ const submit = (e) =>{
                 </Button>
           
               </Form>
-              <p className="text-center mt-3 ">
+              <p className="text-center  text-black mt-3 ">
                 Don't have an account yet?
-              <NavLink to="/register" className="nav-link"><Button className='btn btn-success text-white' >
+              <NavLink to="/register" className="nav-link"><Button className='btn btn-success text-black' >
                 Sign up
                 </Button></NavLink>
               </p>

@@ -30,7 +30,7 @@ function Profile() {
         // console.log(res.data);
         setProfile(res.data);
         setLoading(false)
-        if (res.data.location.coordinates) {
+        if (res.data?.location?.coordinates) {
           setCheckLocation(false);
         } else {
           if (!navigator.geolocation) {
@@ -97,7 +97,8 @@ function Profile() {
             id="profilepic"
           />
           <Card.Body className="d-flex flex-column justify-content-around">
-            <Card.Title>{profile.name}</Card.Title>
+          
+            <Card.Title className="text-black">{profile.name}</Card.Title>
             <button className="btn btn-success text-white" onClick={handleShow}>
               <FaEdit /> Edit Profile
             </button>
@@ -106,7 +107,7 @@ function Profile() {
         <div className=" d-flex flex-column justify-content-around col-9  p-5">
           <div className="">
             <p>My Description:</p>
-            <h5 className="info">{profile.description}</h5>
+            <h5 className="info text-black">{profile.description}</h5>
             <p>My Hobbies:</p>
             <h5 className="info">{profile.hobbies}</h5>
             <p>My German Level:</p>
