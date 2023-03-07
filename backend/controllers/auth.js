@@ -6,7 +6,6 @@ const bcrypt = require("bcrypt");
 const signUp = async (req, res, next) => {
   try {
     const { name, email, password } = req.body;
-
     const user = await User.findOne({ email });
     if (user) throw new ErrorResponse("User already exists", 400);
 
@@ -40,7 +39,7 @@ const login = async (req, res, next) => {
 
     const match = await bcrypt.compare(password, user.password);
     if (!match) throw new ErrorResponse("Wrong credentials", 401);
-    const payload = { id: user._id, email: user.email };
+    const payload = { id: user._id, email: user.email, pic: user.pic };
     const token = jwt.sign(payload, process.env.JWT_SECRET, {
       expiresIn: "8h",
     });
@@ -48,7 +47,7 @@ const login = async (req, res, next) => {
     res
       .cookie("access_token", token, {
         httpOnly: true,
-        maxAge: 1000 * 60 * 60 * 8
+        maxAge: 1000 * 60 * 60 * 8,
       })
       .send(payload);
   } catch (error) {
@@ -60,9 +59,9 @@ const logout = async (req, res, next) => {
   res
     .cookie("access_token", "", {
       httpOnly: true,
-      maxAge: 0
+      maxAge: 0,
     })
-    .json({status: 'success',message:'Logged out successfully'});
+    .json({ status: "success", message: "Logged out successfully" });
 };
 
 module.exports = {

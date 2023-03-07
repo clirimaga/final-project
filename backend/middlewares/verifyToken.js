@@ -1,19 +1,18 @@
 const { ErrorResponse } = require("../utils/ErrorResponse");
 const jwt = require("jsonwebtoken");
 
-const verifyToken = (req,res,next) =>{
-    try {
-        const token = req.cookies.access_token;
-        // console.log(token);
-        if(token) {
-            const payload = jwt.verify(token,process.env.JWT_SECRET);
-            req.user = payload;
-            next()
-        } else {
-            next(new ErrorResponse('Forbidden',403))
-        }
-    } catch (error) {
-        next(new ErrorResponse('Forbidden',403))
+const verifyToken = (req, res, next) => {
+  try {
+    const token = req.cookies.access_token;
+    if (token) {
+      const payload = jwt.verify(token, process.env.JWT_SECRET);
+      req.user = payload;
+      next();
+    } else {
+      next(new ErrorResponse("Forbidden", 403));
     }
-}
-module.exports={verifyToken};
+  } catch (error) {
+    next(new ErrorResponse("Forbidden", 403));
+  }
+};
+module.exports = { verifyToken };

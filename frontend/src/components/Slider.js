@@ -22,7 +22,7 @@ function Slider() {
     infiniteLoop={true}>
       {images.map((image) => (
         <div key={image.url}>
-          <img src={image.url} alt=""  />
+          <img src={image.url} alt="sliderimg"  />
         </div>
       ))}
     </Carousel>
