@@ -1,6 +1,7 @@
 const dotenv = require("dotenv/config");
 const express = require("express");
 require("./db");
+const path = require("path");
 const app = express();
 const cors = require("cors");
 const cloudinary = require("./cloudinary/cloudinary");
@@ -20,9 +21,11 @@ app.use(
 app.use(express.json({ limit: "10mb" }));
 app.use(cookieParser());
 
-app.get("/", (req, res) => {
-  res.send("main page");
-});
+app.use(express.static(path.resolve(__dirname, "../frontend", "build")));
+
+app.get("/*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../frontend", "build", "index.html"));
+ });
 
 app.use("/events", eventRouter);
 app.use("/auth", authRouter);
