@@ -23,16 +23,16 @@ app.use(cookieParser());
 
 app.use(express.static(path.resolve(__dirname, "../frontend", "build")));
 
-app.get("/*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../frontend", "build", "index.html"));
- });
-
 app.use("/events", eventRouter);
 app.use("/auth", authRouter);
 app.use("/users", userRouter);
 app.use("/messages", messagesRouter);
-app.use(errorHandler);
 
+app.get("/*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../frontend", "build", "index.html"));
+});
+
+app.use(errorHandler);
 const port = process.env.PORT;
 app.listen(port, () => {
   `Server running on port : ${port}`;
