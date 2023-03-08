@@ -9,7 +9,7 @@ import Card from "react-bootstrap/Card";
 import { FaEdit } from "react-icons/fa";
 import { AiFillDelete } from "react-icons/ai";
 import { FaSearchLocation } from "react-icons/fa";
-import { Roller } from "react-awesome-spinners";
+// import { Roller } from "react-awesome-spinners";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -95,7 +95,8 @@ function Profile() {
     <div className="row ">
       {loading ? (
         <div className="d-flex justify-content-center my-5">
-          <Roller color="#0e4d4d" />
+          {/* <Roller color="#0e4d4d" /> */}
+          <div>Loading...</div>
         </div>
       ) : (
         <div
