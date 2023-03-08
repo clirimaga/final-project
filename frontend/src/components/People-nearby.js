@@ -1,7 +1,7 @@
 import "./components.css";
 import { useState, useEffect } from "react";
 import axiosClient from "./axiosClient";
-import { Roller } from "react-awesome-spinners";
+// import { Roller } from "react-awesome-spinners";
 import { MdSearchOff } from "react-icons/md";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -57,7 +57,9 @@ function PeopleNearBy() {
       </div>
       {loading ? (
         <div className="d-flex  justify-content-center my-5">
-          <Roller color="#0e4d4d" />
+          {/* <Roller color="#0e4d4d" /> */}
+          <div>Loading...</div>
+
         </div>
       ) : users.length === 1 ? (
         <div className="my-5">
