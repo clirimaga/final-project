@@ -9,7 +9,7 @@ import Card from "react-bootstrap/Card";
 import { FaEdit } from "react-icons/fa";
 import { AiFillDelete } from "react-icons/ai";
 import { FaSearchLocation } from "react-icons/fa";
-// import { Roller } from "react-awesome-spinners";
+import Spinner from 'react-bootstrap/Spinner';
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -23,7 +23,6 @@ function Profile() {
   const [checkLocation, setCheckLocation] = useState(true);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  AOS.init();
 
   useEffect(() => {
     setLoading(true);
@@ -95,15 +94,13 @@ function Profile() {
     <div className="row ">
       {loading ? (
         <div className="d-flex justify-content-center my-5">
-          {/* <Roller color="#0e4d4d" /> */}
-          <div>Loading...</div>
+          <Spinner animation="grow" variant="success" />
         </div>
       ) : (
         <div
           className="profile col-10 offset-1 my-5 d-flex flex-wrap justify-content-center p-5"
-          data-aos="fade-up"
         >
-          <Card className="col-6 col-md-3 text-center">
+          <Card className="col-xs-6 col-sm-4 col-md-3 col-md-3 text-center">
             <Card.Img
               variant="top"
               src={profile.pic}
@@ -118,7 +115,7 @@ function Profile() {
               </button>
             </Card.Body>
           </Card>
-          <div className=" d-flex flex-column justify-content-around col-9  p-5">
+          <div className="d-flex flex-column justify-content-around col-9 text-right p-5">
             <div>
               <span>
                 My Description:
@@ -136,7 +133,7 @@ function Profile() {
                 My Contact:
                 <h5>{profile.contact}</h5>
               </span>
-              <div className=" d-flex justify-content-between">
+              <div className=" d-flex justify-content-between flex-wrap my-2">
                 <button className="btn btn-danger" onClick={deleteAccount}>
                   <AiFillDelete /> Delete Account
                 </button>

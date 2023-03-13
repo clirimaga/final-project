@@ -25,6 +25,7 @@ const getUsers = async (req, res, next) => {
         },
       },
     ]);
+    console.log(radius);
     res.json(users);
   } catch (error) {
     next(error);

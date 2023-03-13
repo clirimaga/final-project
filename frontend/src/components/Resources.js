@@ -26,7 +26,7 @@ export default function Resources() {
       </Carousel>
 
       <div className="row mt-4" data-aos="fade-up">
-        <div className="col-4">
+        <div className="col-sm-4">
           <div className="card soft-yellow">
             <div className="card-body text-center">
               <BsHeadphones size={64} />
@@ -65,13 +65,13 @@ export default function Resources() {
             </div>
           </div>
         </div>
-        <div className="col-4">
+        <div className="col-sm-4">
           <div className="card soft-yellow">
             <div className="card-body text-center">
               <BsFilm size={64} />
               <h5 className="mt-2 mb-0">Creative learning videos</h5>
               <ul className="dots">
-                <li>
+                <li >
                   <a
                     href="https://www.youtube.com/watch?v=6Ka_3Rq8JZ4"
                     className="linkStyle"
@@ -102,7 +102,7 @@ export default function Resources() {
             </div>
           </div>
         </div>
-        <div className="col-4">
+        <div className="col-sm-4">
           <div className="card soft-yellow">
             <div className="card-body text-center">
               <BsBook size={64} />

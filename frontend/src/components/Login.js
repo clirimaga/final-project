@@ -101,7 +101,7 @@ function Login() {
               }}
             />
             <div className="card-body d-flex flex-column justify-content-around">
-              <h2 className="card-title text-center text-black mb-4">Login</h2>
+              <h2 className="card-title text-center text-black mb-4">Log in</h2>
               <Form className="d-flex flex-column gap-3 form" onSubmit={submit}>
                 <Form.Group controlId="formBasicEmail">
                   <Form.Control
@@ -126,7 +126,7 @@ function Login() {
                   type="submit"
                   onSubmit={submit}
                 >
-                  Login
+                  Log in
                 </Button>
               </Form>
               <p className="text-center  text-black mt-3 ">

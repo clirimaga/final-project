@@ -141,7 +141,7 @@ function Register() {
               <p className="text-center  text-black mt-3 ">
                 Already have an account?{" "}
                 <NavLink to="/login" className="nav-link">
-                  <Button className="btn btn-success">Sign in</Button>
+                  <Button className="btn btn-success">Log in</Button>
                 </NavLink>
               </p>
             </div>

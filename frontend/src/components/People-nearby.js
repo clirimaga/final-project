@@ -2,6 +2,8 @@ import "./components.css";
 import { useState, useEffect } from "react";
 import axiosClient from "./axiosClient";
 // import { Roller } from "react-awesome-spinners";
+import Spinner from 'react-bootstrap/Spinner';
+import Card from 'react-bootstrap/Card';
 import { MdSearchOff } from "react-icons/md";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -31,6 +33,7 @@ function PeopleNearBy() {
     axiosClient
       .get(`/users?radius=${distance}`)
       .then((res) => {
+        console.log(res.data);
         setUsers(res.data);
         setLoading(false);
       })
@@ -38,7 +41,7 @@ function PeopleNearBy() {
   }, [distance]);
 
   return (
-    <div className="row usersNearby m-5 text-center">
+    <div className="row usersNearby m-5 ">
       <div className="col-12 d-flex text-center justify-content-between">
         <MdArrowBackIosNew
           style={{ width: 50, height: 50 }}
@@ -56,10 +59,8 @@ function PeopleNearBy() {
         </select>
       </div>
       {loading ? (
-        <div className="d-flex  justify-content-center my-5">
-          {/* <Roller color="#0e4d4d" /> */}
-          <div>Loading...</div>
-
+        <div className="d-flex flex-row justify-content-center my-5">
+          <Spinner animation="grow" variant="success" />
         </div>
       ) : users.length === 1 ? (
         <div className="my-5">
@@ -73,18 +74,52 @@ function PeopleNearBy() {
           .filter((user) => user._id !== loggedUser._id)
           .map((user) => {
             return (
-              <div
-                className="userNearby border col-12 d-flex justify-content-between my-5 flex-wrap shadow"
+              <div className="row  justify-content-center my-3">
+
+              <Card style={{width: '25rem'}} key={user._id}>
+      <Card.Img variant="top" src={user.pic} />
+      <Card.Body>
+        <Card.Title>{user.name}</Card.Title>
+        <Card.Text>
+        {user.description ? <p className="">{user.description}</p> : ""}
+                  {user.hobbies.length !== 0 ? (
+                    <p>Hobbies: {user.hobbies}</p>
+                  ) : (
+                    ""
+                  )}
+                  {!user.germanLevel ? (
+                    <p>German Level: {user.germanLevel}</p>
+                  ) : (
+                    ""
+                  )}
+                  {user.contact ? (
+                    <p>Contact: {user.contact}</p>
+                  ) : (
+                    ""
+                  )}
+        </Card.Text>
+      </Card.Body>
+    </Card>
+    </div>
+            );
+          })
+      )}
+    </div>
+  );
+}
+export default PeopleNearBy;
+{/* <div
+                className="userNearby border col-8 offset-2 d-flex justify-content-between my-5 flex-wrap shadow"
                 key={user._id}
                 data-aos="fade-up"
               >
                 <div className="col-6 m-5 d-flex flex-column justify-content-around">
-                  <h1>{user.name}</h1>
+                  <h1 className="">{user.name}</h1>
                   <p>
                     <MdLocationOn />
                     {Math.trunc(user.distance)}m away.
                   </p>
-                  {user.description ? <h5>{user.description}</h5> : ""}
+                  {user.description ? <h5 className="">{user.description}</h5> : ""}
                   {user.hobbies.length !== 0 ? (
                     <h5>Hobbies: {user.hobbies}</h5>
                   ) : (
@@ -100,11 +135,4 @@ function PeopleNearBy() {
                 <div className="col-4 d-flex flex-column justify-content-center ">
                   <img className="userpic" src={user.pic} alt="userpic" />
                 </div>
-              </div>
-            );
-          })
-      )}
-    </div>
-  );
-}
-export default PeopleNearBy;
+              </div> */}
