@@ -6,13 +6,12 @@ export default function Persons() {
   AOS.init();
   return (
     <div className="row  persons gap-5">
-      <h1 className="text-center" data-aos="fade-down">
+      <h1 className="text-center border-btm p-3" data-aos="fade-down">
         Here's what our users have to say!
       </h1>
-      <hr />
 
       <div
-        className="person col-12 d-flex justify-content-between m-3 flex-wrap p-5 border shadow"
+        className="person col-xs-8 col-12 d-flex justify-content-between m-3 flex-wrap p-5 border shadow"
         data-aos="fade-right"
       >
         <div className="d-flex flex-column justify-content-around  col-12 col-md-8 ">

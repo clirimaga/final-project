@@ -5,6 +5,46 @@ Secondary color #D8D2B9  GOLD */
     "Lucida Sans", Arial, sans-serif;
 }
 
+/* navbar */
+
+.navbar {
+  background-color: #0a3939;
+  color: white;
+  padding: 10px;
+}
+.navlink {
+  color: white;
+  text-decoration: none;
+  padding: 5px;
+  font-size: 1.2rem;
+}
+.navlink:hover {
+  color: #d8d2b9;
+}
+.navlink:focus,
+.navlink:active {
+  color: #d8d2b9;
+  border-bottom: 2px solid #d8d2b9;
+}
+
+.navbar-brand {
+  font-size: 1.2rem; 
+}
+/* about  */
+.aboutp {
+  max-height: 0;
+  overflow: hidden;
+  transition:  all .5s;
+}
+
+.aboutpshow {
+  height:auto;
+  max-height: 100px;
+  transition:  all .5s;
+}
+
+/* darkmode */
+
 .darkmode {
   background-color: transparent;
   color: #fff;
@@ -12,6 +52,76 @@ Secondary color #D8D2B9  GOLD */
   padding: 10px 30px;
   float: right;
 }
+
+.soft-yellow {
+  background-color: #f7f2dd !important;
+}
+
+
+.login , .register {
+  min-height: 88vh;
+  background-image: url("https://res.cloudinary.com/dffxhlnzz/image/upload/v1676907224/wave_5_ep2xno.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* events */
+
+.eventcard img {
+  height: 12rem;
+}
+
+.eventcard:hover {
+  cursor: pointer;
+  box-shadow: 0 1rem 1rem 0 rgba(0, 0, 0, 0.2);
+}
+
+/* persons */
+/* .persons hr {
+  width: 50%;
+  transform: translate(50%);
+} */
+
+.persons h2 {
+  background: linear-gradient(to right, black 50%, #1f6812 50%, #0c6f16);
+  background-size: 200%;
+  background-clip: border-box;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: 1s ease-in;
+}
+
+.persons h2:hover {
+  background-position: -100%;
+  font-size: 2.2rem;
+}
+
+.persons img {
+  max-width: 20rem;
+  max-height: 25rem;
+  min-width: 15rem;
+  min-height: 18rem;
+  transition: 1s;
+  flex-wrap: wrap;
+}
+
+.persons img:hover {
+  transform: scale(1.1);
+  z-index: 2;
+}
+/* .person {
+  box-shadow: #000;
+  background: #f7f2dd;
+} */
+.person:hover {
+  background: linear-gradient(
+    to left,
+    rgba(243, 198, 131, 0.1),
+    rgba(243, 198, 131, 0.299)
+  );
+}
+
 .btn-success {
   position: relative;
   background: #fff;
@@ -82,122 +192,6 @@ Secondary color #D8D2B9  GOLD */
   }
 }
 
-.light-green {
-  background-color: #87c159;
-}
-.soft-yellow {
-  background-color: #d8d2b9 !important;
-}
-
-.button {
-  background-color: #0a3939;
-}
-
-.button:hover {
-  background-color: #116161;
-}
-
-.login {
-  min-height: 88vh;
-  background-image: url("https://res.cloudinary.com/dffxhlnzz/image/upload/v1676907224/wave_5_ep2xno.svg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-.register {
-  min-height: 88vh;
-  background-image: url("https://res.cloudinary.com/dffxhlnzz/image/upload/v1676907224/wave_5_ep2xno.svg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-.text-gold {
-  color: #d8d2b9;
-}
-
-/* events */
-.eventcard {
-  min-width: 20rem;
-  box-shadow: 0 0.5rem 0.5rem 0 rgba(0, 0, 0, 0.1);
-}
-
-.eventcard img {
-  height: 12rem;
-  aspect-ratio: 16 / 9;
-}
-
-.eventcard:hover {
-  cursor: pointer;
-  box-shadow: 0 1rem 1rem 0 rgba(0, 0, 0, 0.2);
-}
-
-/* persons */
-.persons hr {
-  width: 50%;
-  transform: translate(50%);
-}
-
-.persons h2 {
-  background: linear-gradient(to right, black 50%, #1f6812 50%, #0c6f16);
-  background-size: 200%;
-  background-clip: border-box;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  transition: 1s ease-in;
-}
-
-.persons h2:hover {
-  background-position: -100%;
-  font-size: 2.2rem;
-}
-
-.persons img {
-  max-width: 20rem;
-  max-height: 25rem;
-  min-width: 15rem;
-  min-height: 18rem;
-  transition: 1s;
-  flex-wrap: wrap;
-}
-
-.persons img:hover {
-  transform: scale(1.1);
-  z-index: 2;
-}
-.person {
-  box-shadow: #000;
-  background: #cad8d8;
-}
-.person:hover {
-  background: linear-gradient(
-    to left,
-    rgba(0, 0, 0, 0.03),
-    rgba(0, 0, 0, 0.11)
-  );
-}
-.grid-container {
-  display: grid;
-  grid-template-columns: auto auto auto;
-  display: flex;
-  justify-content: center;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-}
-
-.grid-item {
-  width: 650px;
-  border-left: 1px solid black;
-  background-color: transparent;
-  padding: 1.1rem;
-  font-size: 1.3rem;
-  text-align: center;
-  border-bottom: none;
-}
-
-.Headingcenter {
-  text-align: center;
-}
-
 .linkStyle {
   text-decoration: none;
   color: #000;
@@ -206,54 +200,11 @@ Secondary color #D8D2B9  GOLD */
 .dots {
   list-style-type: none;
 }
-
-.lineLeft {
-  border-left: none;
-}
-
-/* .nearByCard{
-    background-image: url('https://res.cloudinary.com/dffxhlnzz/image/upload/v1677059129/wave_6_ax8g3s.svg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    border: 1px solid black;
-    border-radius: 3px;
-    width: 800px;
-    margin: auto;
-    padding: 20px;
-
-}
-.nearByImage{
-    border-radius: 3px;
-    width: 99.1%;
-    height: 350px;
-    display: flex;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    margin: 10px auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-} */
-
-.messageButton {
-  border-radius: 3px;
-  background-color: #0a3939;
-  color: #d8d2b9;
-  display: flex;
-  flex-direction: row-reverse;
-}
-
 .nearBySelect {
   border-radius: 5px;
   padding: 10px;
   background-color: #0a3939;
   color: white;
-}
-
-.nearByData {
-  display: flex;
-  justify-content: space-between;
 }
 
 .dark {
@@ -269,6 +220,11 @@ Secondary color #D8D2B9  GOLD */
 .profile {
   border: 2px solid #0a3939;
   box-shadow: 12px 12px 2px 1px rgba(10, 57, 57, 0.2);
+  background: linear-gradient(
+    to left,
+    rgba(243, 198, 131, 0.1),
+    rgba(243, 198, 131, 0.25)
+  );
 }
 
 .profile:hover {
@@ -277,6 +233,7 @@ Secondary color #D8D2B9  GOLD */
 
 #profilepic {
   transition: 1s;
+  border-radius: 50%;
 }
 #profilepic:hover {
   scale: 1.05;
@@ -299,25 +256,6 @@ Secondary color #D8D2B9  GOLD */
   border-radius: 50%;
 }
 
-.navbar {
-  background-color: #0a3939;
-  color: white;
-  padding: 10px;
-}
-.navlink {
-  color: white;
-  text-decoration: none;
-  padding: 5px;
-  font-size: 1.2rem;
-}
-.navlink:hover {
-  color: #d8d2b9;
-}
-.navlink:focus,
-.navlink:active {
-  color: #d8d2b9;
-}
-
-.navbar-brand {
-  font-size: 1.2rem; /* adjust the value to your desired size */
+.border-btm {
+  border-bottom: 2px solid #d8d2b9;
 }

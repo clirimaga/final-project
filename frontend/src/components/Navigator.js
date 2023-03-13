@@ -9,8 +9,8 @@ function Navigator() {
   const location = useLocation();
   const { user, logout } = useContext(AuthContext);
   return (
-    <Navbar className="navbar" expand="lg">
-      <NavLink to="/" className="navlink ps-5">
+    <Navbar className="navbar ps-5" expand="lg">
+      <NavLink to="/" className="navlink">
         Home
       </NavLink>
       <NavLink to="/helpful-resources" className="navlink">
@@ -20,7 +20,7 @@ function Navigator() {
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ms-auto">
           {user ? (
-            <NavLink to="/profile" className="navlink">
+            <NavLink to="/profile" className="navlink px-2">
               <img id="userpic" src={user.pic} alt="userpic" title="Profile" />
             </NavLink>
           ) : null}
